@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  go:
+    build:
+      context: .
+      dockerfile: docker/go/Dockerfile
+      args:
+        AIR_VER: v1.40.4
+        DELVE_VER: v1.20.1
+    volumes:
+      - ./src:/var/app
+    ports:
+      - "8000:8000"
+    command: air -c .air.toml

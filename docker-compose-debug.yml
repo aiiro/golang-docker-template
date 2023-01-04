@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  go:
+    ports:
+      - "2345:2345"
+    command: air -c .air.debug.toml
+    security_opt:
+      - apparmor:unconfined
+    cap_add:
+      - SYS_PTRACE
